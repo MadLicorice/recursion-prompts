@@ -19,31 +19,72 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+<<<<<<< HEAD
 	if (array.length === 0) {
 		return 0;
 	}
 	return array[0] + sum(array.slice(1));
 
+=======
+  if (array.length === 0) {
+    return 0;
+  }
+  return array[0] + sum(array.slice(1));
+>>>>>>> d075880392c9ee9f82fa1e9358865a523683898b
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  if (array.length === 0) {
+    return 0;
+  }
+  if (Array.isArray(array[0])) {
+    return arraySum(array[0]) + arraySum(array.slice(1));
+  } else {
+    return array[0] + arraySum(array.slice(1));  
+  }
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  if (n === 0) {
+    return true;
+  } else if (n === 1 || n === -1) {
+    return false;
+  }
+  if (n > 0) {
+    return isEven(n - 2);
+  } else {
+    return isEven(n + 2);
+  }
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  if (n === 0) {
+    return 0;
+  }
+  if (n > 0) {
+    return (n - 1) + sumBelow(n - 1);
+  } else if (n < 0) {
+    return (n + 1) + sumBelow(n + 1);
+  }
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  if (x + 1 === y || x === y || x - 1 === y) {
+    return [];
+  }
+  if (x < y) {
+    return [x + 1].concat(range(x + 1, y));
+  } else if (x > y) {
+    return [x - 1].concat(range(x - 1, y));
+  }
 };
 
 // 7. Compute the exponent of a number.
@@ -52,6 +93,14 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  if (exp === 0) {
+    return 1;
+  }
+  if (exp > 0) {
+    return base * exponent(base, exp - 1);
+  } else if (exp < 0) {
+    return 1 / base * exponent(base, exp + 1);
+  }
 };
 
 // 8. Determine if a number is a power of two.
@@ -59,6 +108,7 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  
 };
 
 // 9. Write a function that reverses a string.
@@ -123,6 +173,7 @@ var buildList = function(value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
+
 };
 
 // 20. Count the occurence of a value in a list.
